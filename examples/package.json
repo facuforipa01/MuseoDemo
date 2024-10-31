@@ -1,5 +1,17 @@
 {
   "dependencies": {
+    "express": "^4.21.1",
     "socketio": "^1.0.0"
-  }
+  },
+  "name": "examples",
+  "version": "1.0.0",
+  "main": "room.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
 }
