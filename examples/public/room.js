@@ -151,36 +151,44 @@ AFRAME.registerComponent('room', {
 
 AFRAME.registerComponent('chat-box', {
     init: function () {
-        const btn = document.querySelector("#chatButton"); //Boton Enviar
-        const input = document.querySelector("#chatInput"); //Campo de entrada de texto
-        const log = document.querySelector('.messages'); //logchatInput de mensajes
+        const btn = document.querySelector("#chatButton");
+        const input = document.querySelector("#chatInput");
+        const messages = document.querySelector("#messages");
         const username = document.querySelector('#user-name');
-        username.value = 'usuario' + Math.round(Math.random() * 10000);
-        console.log(btn);
-        const enviarMensaje = () => {
-            //logear tus propios mensajes (verlos en el chatbox)
-            messages.innerHTML += NAF.clientId + username.value + ": " + input.value + '<br>'
-            //transmite el texto como algun dataType unico (como "chat")
-            NAF.connection.broadcastData("chat", { txt: input.value, name: username.value })
-        }
 
-        //cuando quieres enviar mensajes con el boton enviar
+        // Inicializar Socket.io
+        const socket = io("http://localhost:3000");
+
+        // Función para enviar el mensaje al chat
+        const enviarMensaje = () => {
+            const message = input.value;
+            const user = username.value || "Usuario desconocido"; // Nombre por defecto
+
+            // Emitir el mensaje al servidor, pero no agregarlo al chat aquí
+            socket.emit("chat message", { text: message, user: user });
+
+            input.value = ""; // Limpiar el campo de entrada
+        };
+
+        // Enviar mensaje con el botón de enviar
         btn.addEventListener("click", enviarMensaje);
 
-        //con enter
+        // Enviar mensaje al presionar "Enter"
         input.addEventListener("keydown", (event) => {
             if (event.key === 'Enter') {
                 enviarMensaje();
             }
-        })
+        });
 
-        //cuando un mensaje tipo "chat" arriva
-        NAF.connection.subscribeToDataChannel("chat", (senderId, dataType, data, targetId) => {
-            //apendiza el data.txt. al log el mensaje
-            messages.innerHTML += senderId + ":" + data.txt + '<br>'
-        })
+        // Mostrar mensajes recibidos del servidor
+        socket.on("chat message", (data) => {
+            messages.innerHTML += `<b>${data.user}:</b> ${data.text} <br>`;
+        });
     }
 });
+
+
+
 
 //evita que VR spawnee la camara por encima del techo
 AFRAME.registerComponent('vr-camera-reset', {
