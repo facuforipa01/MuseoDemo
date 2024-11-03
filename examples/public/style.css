@@ -1,81 +1,89 @@
-#chat-container {
-  float: inline-start;
-    width: 300px;
-    height: 150px;
-    z-index: 10;
-    background-color: rgba(202, 198, 237, 0.415); /* Optional background */
-    margin: 10px;
-  max-width: 550px;
-  font: 15px arial, sans-serif;
-  border-style: solid;
-  border-color: rgba(44, 13, 73, 0.163);
-  border-width: 3px;
-  padding-top: 20px;
-  padding-bottom: 25px;
-  padding-right: 25px;
-  padding-left: 25px;
-  border-radius: 15px;
-  }
-  #chatButton{
-    background-color: rgba(200, 195, 189, 0.600);
-    border-radius: 12px;
-    border: none;
-    width: 80px;
-    height: 28px;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    font-weight: 500;
-    margin-left: 210px;
-
-  }
-
-  #chatInput{
-    background-color: rgba(200, 195, 189, 0.600);
-    border-radius: 12px;
-    border: none;
-    height: 25px;
-    width: 200px;
-    
-  }
-
-  #messages{
-    background-color: rgba(200, 195, 189, 0.4); /* Optional background */
-    border-radius: 12px;
-    border: none;
-    padding: 5px;
-    width: 80%;
-    height: 50%;
-    max-height: 80%;
-    overflow-y: auto;
-    display: flex;
-    flex-direction: column;
-    scrollbar-width: none; 
-  }
-
-  #user-n4me{
-  background-color: rgba(202, 198, 237, 0.415); /* Optional background */
-  height: 30px;
+#user-n4me {
+  background-color: rgba(202, 198, 237, 0.415);
+  /* Optional background */
+  height: 4%;
+  width: 82%;
   font: 15px arial, sans-serif;
   border-style: solid;
   border-color: rgba(44, 13, 73, 0.163);
   border-width: 3px;
   border-radius: 15px;
-  font-family:Verdana, Geneva, Tahoma, sans-serif;
-  margin-top: 5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   display: flex;
   align-items: center;
-  padding: 3px;
-  margin: auto;
+  padding: 1%;
+  margin: 7%;
+  margin-top: 15%;
+}
 
-  }
+#user-name {
+  background-color: rgba(200, 195, 189, 0.600);
+  border-radius: 10px;
+  border: none;
+  height: 90%;
+  width: 96%;
+  padding-left: 30%;
+}
 
+#chat-container {
+  float: inline-start;
+  width: 90%;
+  height: 18%;
+  z-index: 10;
+  background-color: rgba(202, 198, 237, 0.415);
+  margin: 5%;
+  max-width: 90%;
+  font: 15px arial, sans-serif;
+  border-style: solid;
+  border-color: rgba(44, 13, 73, 0.163);
+  border-width: 3px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
-  #user-name{
-    background-color: rgba(200, 195, 189, 0.600);
-    border-radius: 12px;
-    border: none;
-    height: 20px;
-    width: 300px;
-    max-width: 550px;
-    padding-left: 5px;
+#chat-bar {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 98%;
+  margin: 1%;
+  height: 25%;
+}
 
-  }
+#chatButton {
+  background-color: rgba(200, 195, 189, 0.600);
+  border-radius: 12px;
+  border: none;
+  width: 26%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 500;
+
+}
+
+#chatInput {
+  background-color: rgba(200, 195, 189, 0.600);
+  border-radius: 12px;
+  border: none;
+  width: 72%;
+  z-index: 11;
+  margin-right: 1%;
+  padding-left: 5%;
+}
+
+#messages {
+  background-color: rgba(200, 195, 189, 0.4);
+  /* Optional background */
+  border-radius: 12px;
+  width: 94%;
+  height: 64%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  scrollbar-width: none;
+  margin: 1% 1% 0% 1%;
+  z-index: 11;
+  padding: 2%;
+}
