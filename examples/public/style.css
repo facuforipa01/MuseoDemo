@@ -44,10 +44,11 @@
     padding: 5px;
     width: 80%;
     height: 50%;
-    max-height: 90%;
+    max-height: 80%;
     overflow-y: auto;
     display: flex;
     flex-direction: column;
+    scrollbar-width: none; 
   }
 
   #user-n4me{
@@ -62,7 +63,8 @@
   margin-top: 5px;
   display: flex;
   align-items: center;
-  padding: 5px;
+  padding: 3px;
+  margin: auto;
 
   }
 
