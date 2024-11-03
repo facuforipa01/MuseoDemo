@@ -168,6 +168,9 @@ AFRAME.registerComponent('chat-box', {
             socket.emit("chat message", { text: message, user: user });
 
             input.value = ""; // Limpiar el campo de entrada
+
+            messages.scrollTop = messages.scrollHeight;
+
         };
 
         // Enviar mensaje con el botón de enviar
