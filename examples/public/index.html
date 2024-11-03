@@ -7,13 +7,13 @@
     <title>Demo</title>
 
     <!-- A-frame -->
-    <script src="https://aframe.io/releases/1.3.0/aframe.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/aframe-extras@7.5.0/dist/aframe-extras.min.js"></script> 
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/n5ro/aframe-physics-system@v$npm_package_version/dist/aframe-physics-system.min.js"></script>
 
 
 
     <!--   NAF basic requirements   -->
-    <script src="https://cdn.socket.io/4.8.0/socket.io.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.5.0/socket.io.slim.js"></script>
     <!-- <script src="/easyrtc/easyrtc.js"></script> (404 no encontrado no anda outdated seguro buscar lib reemplazante) -->
     <script src="https://unpkg.com/networked-aframe@^0.12.0/dist/networked-aframe.min.js"></script>
 
@@ -32,8 +32,11 @@
 
     <script src="room.js"></script>
 
-    <a-scene >
+    <a-scene  physics="debug: true">
         <a-assets>
+
+            <!-- Modelos 3D -->
+             <a-asset-items id="silla" src="./assets/leather_chairgltf.glb"></a-asset-items>
 
             <template id="rig-template">
                 <a-entity></a-entity>
@@ -41,15 +44,20 @@
 
             <!--textures-->
 
-            <img id="techo" src="./textures/personalizados/techo.jpg">
-            <img id="piso" src="./textures/personalizados/piso.jpg">
-            <img id="pisomarron" src="./textures/personalizados/pisomarron.jpg">
-            <img id="pisocrema" src="./textures/personalizados/pisocrema.jpg">
-            <img id="paredblanca" src="./textures/personalizados/paredblanca.jpg">
-            <img id="paredmarron" src="./textures/personalizados/paredmarron.jpg">
-            <img id="mesi" src="./textures/personalizados/mesi.jpg">
-            <img id="messicopa" src="./textures/personalizados/messicopa.jpg">
-            <img id="messitransparent" src="./textures/personalizados/messitransparent.png">
+            <img id="techo" src="./textures/personalizados/techo.jpg"alt="">
+            <img id="piso" src="./textures/personalizados/piso.jpg" alt="">
+            <img id="pisomarron" src="./textures/personalizados/pisomarron.jpg"alt>
+            <img id="pisocrema" src="./textures/personalizados/pisocrema.jpg"alt>
+            <img id="paredblanca" src="./textures/personalizados/paredblanca.jpg" alt="">
+            <img id="paredmarron" src="./textures/personalizados/paredmarron.jpg" alt="">
+            <img id="cuerpos" src="./img/5ab6d7b0ab634af1f21c10af35e5fb95.webp" alt="">
+            <img id="pubertad" src="./img/c3f2b98a1959a12171e0e7e38052e761.webp" alt="" >
+            <img id="calendario" src="./img/Calendar_ESI.webp" alt="" >
+            <img id="cambios" src="./img/cambios-que-se-ven-y-se-sienten-collage_20231121140502.webp" alt="" >
+            <img id="esi" src="./img/ESI.webp" alt="" >
+            <img id="imagengenerada" src="./img/imagengenerada.webp" alt="" >
+            <img id="imagenlinda" src="./img/imagenlinda.jpg" alt="" >
+            <img id="imagenbuena" src="./img/imagenbuena.jpg" alt="" >
             <!-- Templates -->
 
             <!-- Avatar -->
@@ -70,30 +78,32 @@
             <!-- /Templates -->
 
         </a-assets>
-
-        <div id="chat-container">
-            <input type="text" id="chatInput">
-            <button id="chatButton"> Enviar </button>
-            <div id="messages"></div>
+        <h3 style="color: #615d5d; user-select: none;">USUARIO</h3>
+        <div 
+        id="chat-container" 
+        style="bottom: 24px; position: fixed; width: 300px;"
+        >
+            <div id="messages" style="margin-top: 0px; position: absolute; overflow-y: auto;"></div>
+            <div id="chat-bar" style="margin-top: 135px;">
+                <input type="text" id="chatInput" style="position: fixed;" placeholder="Escribe un mensaje">
+                <button id="chatButton"> Enviar </button>
+            </div>
+            
         </div>
-        <div style="z-index: 100; bottom: 24px; left: 48px; position: fixed">
-            <h3 style="color: #fff; user-select: none">Tu nombre:</h3>
-            <input id="user-name" />
+        <div id="user-n4me" style="z-index: 100; top: 0px;  left: 10px; position: absolute" >
+            <h5 style="user-select: none; display: flex; justify-content: center">
+                USUARIO
+            </h5>
+           <input id="user-name"/>
         </div>
-        <a-entity light="type: ambient; color: #ffffff;     intensity:1;"></a-entity>
+        <a-entity light="type: ambient; color: #CCC;     intensity:1.2;"></a-entity>
         <a-entity chat-box></a-entity>
         <!-- <a-entity id="camera" position='3 1.5 -1' rotation="90 90 90" camera look-controls wasd-controls></a-entity> -->
         <!-- movement-controls="fly:true; acceleration:20;" -->
-        <a-entity id="rig" networked="template:#rig-template;" position='8 0.5 2' rotation="0 50 0" vr-camera-reset obb-collider="objects: .collidable">
+        <a-entity id="rig" movement-controls="controls: keyboard, touch; contrainToNavMesh: true; speed:0.1;" networked="template:#rig-template;" height="2" width="2" position='8 0.5 2' rotation="0 50 0" vr-camera-reset obb-collider="objects: .collidable">
             <a-entity id="camera" camera look-controls="pointerLockEnabled: true"
-                wasd-controls="acceleration:20; data-enabled: true"></a-entity>
-        </a-entity> 
-
-        
-
-
-
-              
+                wasd-controls="acceleration:10"></a-entity>
+        </a-entity>
 
 
         <a-entity id="room" room="mapToLoad:map; 
@@ -104,8 +114,20 @@
             floorTexture:pisocrema; 
             indoor:true"> 
         </a-entity>
+        <a-plane src="#esi" height="2.5" width="3" rotation="0 90 0" position="0.505 1.54937 -19.16864" scale="" material="" geometry=""></a-plane>
+        <a-plane src="#pubertad" height="2" width="2.5" rotation="" position="16.80645 1.5 -6.49" scale="" material="" geometry=""></a-plane>
+        <a-plane src="#calendario" height="1.5" width="1.5" rotation="0 -179.5930479259614 0" position="3.28794 1.64571 -7.51222" scale="" material="" geometry=""></a-plane>
+        <a-plane src="#cambios" height="1.5" width="1.5" rotation="0 180 0" position="9.7865 1.27446 19.48986" scale="" material="" geometry=""></a-plane>
+        <a-plane src="#cuerpos" height="1" width="0.5" rotation="0 90 0" position="0.505 0.75 0 " scale=""></a-plane>
 
-        
+        <a-plane src="#enseniar" height="2" width="2" rotation="0 270 0" position="23.40243 1.5 2.20358" scale="" material="" geometry="" visible="" ></a-plane>
+        <a-plane src="#imagenbuena" height="2" width="2" rotation="" position="10.38243 1.5 -24.48459" scale="" material="" geometry=""></a-plane>
+        <a-plane src="#imagenlinda" height="2" width="2" rotation="0 0 0" position="7.31 1.5 -6.49" scale=""></a-plane>
+        <!--<a-plane src="#messicopa" height="0.5" width="0.5" rotation="0 0 0" position="4.1 1.5 -6.49" scale=""></a-plane>-->
+        <a-plane src="#imagengenerada" height="3" width="3" rotation="0 90 0" position="0.505 1.3 3 " scale=""></a-plane>
+
+            <!-- <a-entity gltf-model="./assets/leather_chairgltf.glb" rotation="0 -90 0" position="20.09792 0.07967 -2.01395" scale="0.33514 0.33514 0.33514"></a-entity> -->
+
         <a-sky id="sky" color="#7AA1C1"></a-sky>
     </a-scene>
 </body>

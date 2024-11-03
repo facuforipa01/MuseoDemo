@@ -157,7 +157,7 @@ AFRAME.registerComponent('chat-box', {
         const username = document.querySelector('#user-name');
 
         // Inicializar Socket.io
-        const socket = io("http://localhost:3000");
+        const socket = io("https://vps-4480743-x.dattaweb.com");
 
         // Función para enviar el mensaje al chat
         const enviarMensaje = () => {
