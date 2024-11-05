@@ -36,7 +36,9 @@
         <a-assets>
 
             <!-- Modelos 3D -->
-             <a-asset-items id="silla" src="./assets/leather_chairgltf.glb"></a-asset-items>
+             <a-asset-items id="sillon" src="./assets/sillon_rojo/scene.gltf"></a-asset-items>
+             <a-asset-items id="ventana" src="./assets/ventana/scene.gltf"></a-asset-items>
+             <a-asset-items id="cartelObra" src="./assets/carteles_obra/scene.gltf"></a-asset-items>
 
             <template id="rig-template">
                 <a-entity></a-entity>
@@ -56,8 +58,23 @@
             <img id="cambios" src="./img/cambios-que-se-ven-y-se-sienten-collage_20231121140502.webp" alt="" >
             <img id="esi" src="./img/ESI.webp" alt="" >
             <img id="imagengenerada" src="./img/imagengenerada.webp" alt="" >
-            <img id="imagenlinda" src="./img/imagenlinda.jpg" alt="" >
-            <img id="imagenbuena" src="./img/imagenbuena.jpg" alt="" >
+            <img id="imagenlinda" src="./img/imagenlinda.webp" alt="" >
+            <img id="imagenbuena" src="./img/imagenbuena.webp" alt="" >
+            <img id="perspectivaGenero" src="./img/perspectiva_de_genero.webp" alt="" >
+            <img id="respetoDiversidad" src="./img/respeto-por-la-diversidad-cultural.webp" alt="" >
+
+            <img id="estadosAnimos" src="./img/estados_animos.webp" alt="">
+            <img id="amor" src="./img/amor.webp" alt="">
+            <img src="./img/niñas.webp" alt="" id="nenas">
+            <img src="./img/respeto.webp" alt="" id="respeto">
+            <img src="./img/nena_cuerpo.webp" alt="" id="nenaCuerpo">
+            <img src="./img/partes_cuerpos.webp" alt="" id="partesCuerpo">
+            <img src="./img/nenes_pelota.webp" alt="" id="nenesPelota">
+            <img src="./img/hi_five.webp" alt="" id="choqueManos">
+            <img src="./img/higiene.webp" alt="" id="higiene">
+            <img src="./img/nenes_cuerpos.webp" alt="" id="nenesCuerpos">
+            <img src="./img/expresiones_nena.webp" alt="" id="expresiones">
+
             <!-- Templates -->
 
             <!-- Avatar -->
@@ -110,20 +127,38 @@
             floorTexture:pisocrema; 
             indoor:true"> 
         </a-entity>
-        <a-plane src="#esi" height="2.5" width="3" rotation="0 90 0" position="0.505 1.54937 -19.16864" scale="" material="" geometry=""></a-plane>
-        <a-plane src="#pubertad" height="2" width="2.5" rotation="" position="16.80645 1.5 -6.49" scale="" material="" geometry=""></a-plane>
-        <a-plane src="#calendario" height="1.5" width="1.5" rotation="0 -179.5930479259614 0" position="3.28794 1.64571 -7.51222" scale="" material="" geometry=""></a-plane>
-        <a-plane src="#cambios" height="1.5" width="1.5" rotation="0 180 0" position="9.7865 1.27446 19.48986" scale="" material="" geometry=""></a-plane>
-        <a-plane src="#cuerpos" height="1" width="0.5" rotation="0 90 0" position="0.505 0.75 0 " scale=""></a-plane>
+        <a-plane id="cuadro1" src="#esi" height="2.5" width="3" rotation="0 90 0" position="0.505 1.54937 -19.16864" scale="" material="" geometry=""></a-plane>
+        <a-plane id="cuadro2" src="#pubertad" height="2" width="2.5" rotation="0 -90 0" position="20.49 1.33 6" scale="0.37375 1 1" material="" geometry=""></a-plane>
+        <a-plane id="cuadro3" src="#calendario" height="1.5" width="1.5" rotation="0 -179.5930479259614 0" position="4.5 1.5 -7.51222" scale="1.29352 1.29352 1.29352" material="" geometry=""></a-plane>
+        <a-plane id="cuadro4" src="#cambios" height="1.5" width="1.5" rotation="0 180 0" position="16 1.5 19.48986" scale="1.28945 1.28945 1.28945" material="; src: #nenas" geometry=""></a-plane>
+        <a-plane id="cuadro5" material="src: #amor" src="#cuerpos" height="1" width="0.5" rotation="0 180 0" position="9 1.5 19.11244" scale="4.37423 1.59564 1.59564"></a-plane>
+        <a-plane id="cuadro8-2" src="#respeto" height="2" width="2" rotation="" position="16.5 1.5 -6.49" scale="" material="" geometry=""></a-plane>
 
-        <a-plane src="#enseniar" height="2" width="2" rotation="0 270 0" position="23.40243 1.5 2.20358" scale="" material="" geometry="" visible="" ></a-plane>
-        <a-plane src="#imagenbuena" height="2" width="2" rotation="" position="10.38243 1.5 -24.48459" scale="" material="" geometry=""></a-plane>
-        <a-plane src="#imagenlinda" height="2" width="2" rotation="0 0 0" position="7.31 1.5 -6.49" scale=""></a-plane>
-        <!--<a-plane src="#messicopa" height="0.5" width="0.5" rotation="0 0 0" position="4.1 1.5 -6.49" scale=""></a-plane>-->
-        <a-plane src="#imagengenerada" height="3" width="3" rotation="0 90 0" position="0.505 1.3 3 " scale=""></a-plane>
+        <a-plane id="cuadro6" src="#respetoDiversidad" height="2" width="2" rotation="0 270 0" position="23.497 1.5 2" scale="" material="" geometry="" visible=""></a-plane>
+        <a-plane id="cuadro7" src="#imagenbuena" height="2" width="2" rotation="" position="10.38243 1.5 -24.48459" scale="" material="" geometry=""></a-plane>
+        <a-plane id="cuadro8" src="#imagenlinda" height="2" width="2" rotation="0 0 0" position="4.5 1.5 -6.49" scale=""></a-plane>
+        <a-plane id="cuadro9" src="#perspectivaGenero" height="0.5" width="0.5" rotation="0 -90 0" position="23.497 1.5 -14.9158" scale="3.30827 3.30827 3.24416" material="" geometry=""></a-plane>
+        <a-plane id="cuadro10" src="#imagengenerada" height="3" width="3" rotation="0 90 0" position="0.505 1.4846 0" scale="1 1 1"></a-plane>
 
-            <!-- <a-entity gltf-model="./assets/leather_chairgltf.glb" rotation="0 -90 0" position="20.09792 0.07967 -2.01395" scale="0.33514 0.33514 0.33514"></a-entity> -->
+        <!-- Sala 2 -->
+        <a-plane id="cuadro11" src="#nenesCuerpos" height="3" width="3" rotation="0 -90 0" position="-0.510 1.5 -8.5" scale="0.46635 0.46635 0.46635" material="" geometry=""></a-plane>
+        <a-plane id="cuadro12" src="#nenaCuerpo" height="3" width="3" rotation="0 -90 0" position="-0.510 1.5 1.5" scale="0.46635 0.46635 0.46635" material="" geometry=""></a-plane>
+        <a-plane id="cuadro13" src="#partesCuerpo" height="3" width="3" rotation="0 -90 0" position="-0.510 1.5 -3.5" scale="0.46635 0.46635 0.46635" material="" geometry=""></a-plane>
+        <a-plane id="cuadro14" src="#cambios" height="3" width="3" rotation="0 0 0" position="-5 1.5 -13.490" scale="0.77377 0.77377 0.77377" material="" geometry=""></a-plane>
+        <a-plane id="cuadro15" src="#cuerpos" height="3" width="3" rotation="0 0 0" position="-19 0.8733 -13.49" scale="0.32605 0.46635 0.46635" material="" geometry=""></a-plane>
 
+        <!-- Sala 3 -->
+        <a-plane id="cuadro16" src="#choqueManos" height="3" width="3" rotation="0 180 0" position="-19 1.5 -14.510" scale="0.69918 0.69918 0.69918" material="" geometry=""></a-plane>
+        <a-plane id="cuadro17" src="#nenesPelota" height="3" width="3" rotation="0 180 0" position="-5 1.5 -14.510" scale="0.94822 0.70866 0.70866" material="" geometry=""></a-plane>
+        <a-plane id="cuadro18" src="#estadosAnimos" height="3" width="3" rotation="0 -90 0" position="-0.510 1.5 -19.5" scale="0.71121 0.59235 0.59235" material="" geometry=""></a-plane>
+        <a-plane id="cuadro19" src="#expresiones" height="3" width="3" rotation="" position="-12.5 1.5 -24.49" scale="1.0582 0.64186 0.64186" material="" geometry=""></a-plane>
+
+        <!-- Objetos 3D -->
+        <a-entity id="modeloSillon" gltf-model="./assets/sillon_rojo/scene.gltf" rotation="0 180 0" position="19.91165 0.30176 -2.01395" scale="0.33514 0.33514 0.33514"></a-entity>
+        <a-entity id="vetana" gltf-model="./assets/ventana/scene.gltf" rotation="0 180 0" position="-11 0.07 20.350" scale="0.018 0.026 0.01"></a-entity>
+        <a-entity id="ventana2" gltf-model="./assets/ventana/scene.gltf" rotation="0 180 0" position="-20 0.07 20.350" scale="0.018 0.026 0.01"></a-entity>
+        <a-entity id="ventana3" gltf-model="./assets/ventana/scene.gltf" rotation="0 180 0" position="-22 0.07 20.350" scale="0.018 0.026 0.01"></a-entity>
+        <!-- <a-entity id="cartelesObra" gltf-model="#cartelObra" rotation="0 180 0" position="-22 0.07 20.350" scale="0.018 0.026 0.01"></a-entity> -->
         <a-sky id="sky" color="#7AA1C1"></a-sky>
     </a-scene>
 </body>
