@@ -2,7 +2,7 @@
   background-color: rgba(202, 198, 237, 0.415);
   /* Optional background */
   height: 4%;
-  width: 82%;
+  width: 84%;
   font: 15px arial, sans-serif;
   border-style: solid;
   border-color: rgba(44, 13, 73, 0.163);
@@ -13,7 +13,7 @@
   align-items: center;
   padding: 1%;
   margin: 7%;
-  margin-top: 15%;
+  margin-top: 3rem;
 }
 
 #user-name {
@@ -21,8 +21,9 @@
   border-radius: 10px;
   border: none;
   height: 90%;
-  width: 96%;
-  padding-left: 30%;
+  width: 100%;
+  text-align: center;
+  font-weight: bold;
 }
 
 #chat-container {
@@ -86,4 +87,7 @@
   margin: 1% 1% 0% 1%;
   z-index: 11;
   padding: 2%;
+}
+::placeholder{
+  color: black;
 }
